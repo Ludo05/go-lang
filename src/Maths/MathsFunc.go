@@ -18,6 +18,13 @@ func OneForTwoExport(sum int) (x,y int) {
 	return
 }
 
+func Div(x, y float64) (float64, error) {
+	if x == 0.0 {
+		return 0.0, fmt.Errorf("cant divide by zero")
+	}
+	return x/y, nil
+};
+
 func privateFun() () {
 	fmt.Println("Private method")
 }
