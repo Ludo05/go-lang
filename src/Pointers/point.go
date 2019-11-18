@@ -2,14 +2,13 @@ package main
 
 import "fmt"
 
-
 func main() {
 	var a int = 42
 	//b is pointing to a int and that int is a ref of a
 	var b *int = &a
 	*b = 34
 
-	fmt.Println(a,*b)
+	fmt.Println(a, *b)
 
 	var arr [2]int
 	arr[0] = 23
@@ -25,11 +24,16 @@ func main() {
 	ms = stru
 	fmt.Println(*ms)
 
-	name := "Luke";
+	name := "Luke"
 	greeting := "Hello"
-	sayHello(&name,&greeting)
+	sayHello(&name, &greeting)
 	fmt.Println(name)
+
+	num := 3845
+	too := sayNumber(&num)
+	fmt.Println(*too)
 }
+
 // I am a pointer to a type and that type has the address.
 
 type MyStruct struct {
@@ -37,7 +41,14 @@ type MyStruct struct {
 }
 
 func sayHello(name, greeting *string) {
-	fmt.Println(*name,*greeting)
+	fmt.Println(*name, *greeting)
 	*name = "Yoda"
 	fmt.Println(*name)
+}
+
+func sayNumber(num *int) *int {
+	fmt.Println(*num)
+	*num = 2 + 277
+
+	return num
 }

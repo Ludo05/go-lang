@@ -1,22 +1,26 @@
 package SwitchStatement
 
-import (
-	"fmt"
-	"runtime"
-)
+const French = "french"
+const Spanish = "spanish"
 
-
-func main() {
-	fmt.Print("Go runs on ")
-	switch os := runtime.GOOS;
-	os {
-	case "darwin":
-		fmt.Println("OS X.")
-	case "linux":
-		fmt.Println("Linux.")
-	default:
-		// freebsd, openbsd,
-		// plan9, windows...
-		fmt.Printf("%s.\n", os)
+func SayHello(name, language string) string {
+	if name == "" {
+		name = "World"
+		return LanguageSwitch(language) + name
 	}
+	return LanguageSwitch(language) + name
+}
+
+func LanguageSwitch(language string) (prefix string) {
+	switch language {
+	case French:
+		prefix = "Bonjour "
+
+	case Spanish:
+		prefix = "Hola "
+
+	default:
+		prefix = "Hello "
+	}
+	return
 }
